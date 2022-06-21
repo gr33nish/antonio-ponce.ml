@@ -11582,6 +11582,11 @@ img.active {
   animation: fadeImg 0.8s;
 }
 
+.active {
+  display: block;
+  animation: fadeImg 0.8s;
+}
+
 .slider-nav .arrow {
   flex: 0 0 15%;
 }

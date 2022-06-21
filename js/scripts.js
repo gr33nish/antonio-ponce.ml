@@ -1,56 +1,51 @@
-/*!
-* Start Bootstrap - Freelancer v7.0.6 (https://startbootstrap.com/theme/freelancer)
-* Copyright 2013-2022 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
+const portfolio_sliders = document.querySelectorAll('.slider-img');
+const portfolio_desc = document.querySelectorAll('.slider-ddc');
+const ps_count = portfolio_sliders.length;
+const next_ps = document.querySelector('.next-ps');
+const previous_ps = document.querySelector('.previous-ps');
+let ps_counter = 0;
 
-const items = document.querySelectorAll('img');
-const itemCount = items.length;
-const nextItem = document.querySelector('.next');
-const previousItem = document.querySelector('.previous');
-let count = 0;
+function showNextPS() {
+  portfolio_sliders[ps_counter].classList.remove('active');
+  portfolio_desc[ps_counter].classList.remove('active');
 
-function showNextItem() {
-  items[count].classList.remove('active');
-
-  if(count < itemCount - 1) {
-    count++;
+  if(ps_counter < ps_count - 1) {
+    ps_counter++;
   } else {
-    count = 0;
+    ps_counter = 0;
   }
 
-  items[count].classList.add('active');
-  console.log(count);
+  portfolio_sliders[ps_counter].classList.add('active');
+  portfolio_desc[ps_counter].classList.add('active');
+  console.log(ps_counter);
 }
 
-function showPreviousItem() {
-  items[count].classList.remove('active');
+function showPreviousPS() {
+  portfolio_sliders[ps_counter].classList.remove('active');
+  portfolio_desc[ps_counter].classList.remove('active');
 
-  if(count > 0) {
-    count--;
+  if(ps_counter > 0) {
+    ps_counter--;
   } else {
-    count = itemCount - 1;
+    ps_counter = ps_count - 1;
   }
 
-  items[count].classList.add('active');
-  console.log(count);
+  portfolio_sliders[ps_counter].classList.add('active');
+  portfolio_desc[ps_counter].classList.add('active');
 }
 
 function keyPress(e) {
   e = e || window.event;
   
   if (e.keyCode == '37') {
-    showPreviousItem();
+    showPreviousPS();
   } else if (e.keyCode == '39') {
-    showNextItem();
+    showNextPS();
   }
 }
 
-nextItem.addEventListener('click', showNextItem);
-previousItem.addEventListener('click', showPreviousItem);
+next_ps.addEventListener('click', showNextPS);
+previous_ps.addEventListener('click', showPreviousPS);
 document.addEventListener('keydown', keyPress);
 
 window.addEventListener('DOMContentLoaded', event => {
