@@ -11529,7 +11529,7 @@ body2 {
 }
 
 .container2 {
-  max-width: 199px;
+  max-width: 999px;
   margin: 0 auto;
   padding: 0px;
 }
@@ -11581,6 +11581,15 @@ body2 {
 .d {
   max-width: 100%;
   display: none;
+  /* box-shadow: 10px 10px 20px 0 rgba(94,47,59,0.2); */
+}
+
+.z {
+  max-width: 100%;
+  display: none;
+  left: -9999;
+
+
   /* box-shadow: 10px 10px 20px 0 rgba(94,47,59,0.2); */
 }
 
